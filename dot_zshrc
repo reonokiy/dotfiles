@@ -137,6 +137,9 @@ alias mda='micromamba activate base'
 alias mc='micromamba create'
 alias mr='micromamba run'
 alias mi='micromamba install'
+alias ml='micromamba list'
+alias me='micromamba env'
+alias mel='micromamba env list'
 alias conda='micromamba'
 
 # git alias
