@@ -112,6 +112,10 @@ eval "$(atuin init zsh)"
 # zoxide config
 eval "$(zoxide init zsh)"
 
+# editors
+export EDITOR="nano"
+export VISUAL="code"
+
 # sops keys
 export SOPS_AGE_RECIPIENTS="op://Private/Age/public key"
 export SOPS_AGE_KEY="op://Private/Age/private key"
@@ -123,15 +127,22 @@ alias ...='cd ../..'
 alias ls=eza
 alias f=fuck
 alias v=nvim
-alias mm=micromamba
+alias sops='op run --no-masking -- sops'
+alias dotfiles='chezmoi'
+
+# micromamba|conda alias
+alias mm='micromamba'
 alias ma='micromamba activate'
 alias mda='micromamba activate base'
 alias mc='micromamba create'
 alias mr='micromamba run'
 alias mi='micromamba install'
 alias conda='micromamba'
-alias sops='op run --no-masking -- sops'
-alias dotfiles='chezmoi'
+
+# git alias
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gcl='git clone'
 
 # Created by `pipx` on 2024-02-17 11:33:21
 export PATH="$PATH:/home/ree/.local/bin"
