@@ -112,6 +112,9 @@ eval "$(atuin init zsh)"
 # zoxide config
 eval "$(zoxide init zsh)"
 
+# homebrew config
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # editors
 export EDITOR="nano"
 export VISUAL="code"
