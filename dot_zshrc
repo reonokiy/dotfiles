@@ -63,11 +63,12 @@ key[Control-Right]="${terminfo[kRIT5]}"
 [[ -n "${key[Control-Left]}"  ]] && bindkey -- "${key[Control-Left]}"  backward-word
 [[ -n "${key[Control-Right]}" ]] && bindkey -- "${key[Control-Right]}" forward-word
 
-# zsh-autosuggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# homebrew config
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
@@ -111,9 +112,6 @@ eval "$(atuin init zsh)"
 
 # zoxide config
 eval "$(zoxide init zsh)"
-
-# homebrew config
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # editors
 export EDITOR="nano"
