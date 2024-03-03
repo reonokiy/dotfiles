@@ -1,0 +1,14 @@
+[packages.fedora39]
+dnf.pkgs = [
+    "eza",
+    "thefuck",
+    "micromamba",
+    "zoxide"
+]
+brew.pkgs = [
+    "atuin",
+    "fnm",
+    "yazi",
+    "zsh-syntax-highlighting",
+    "zsh-autosuggestions"
+]
