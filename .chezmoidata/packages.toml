@@ -1,8 +1,11 @@
 [packages.fedora39]
 dnf.pkgs = [
+    "zsh",
+    "distrobox",
     "eza",
     "thefuck",
     "micromamba",
+    "podman",
     "zoxide"
 ]
 brew.pkgs = [
