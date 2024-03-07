@@ -148,5 +148,8 @@ alias gc='git commit'
 alias gcm='git commit -m'
 alias gcl='git clone'
 
+# distrobox alias
+alias box='distrobox'
+
 # Created by `pipx` on 2024-02-17 11:33:21
 export PATH="$PATH:/home/ree/.local/bin"
