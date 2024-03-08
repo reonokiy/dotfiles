@@ -1,0 +1,9 @@
+{{- if eq .chezmoi.os "windows" -}}
+{{-   template "dot_gitconfig_windows.tmpl" . -}}
+{{- else if eq .chezmoi.os "linux" -}}
+{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{-   	template "dot_gitconfig_wsl.tmpl" . -}}
+{{-   else -}}
+{{-   	template "dot_gitconfig_linux.tmpl" . -}}
+{{-   end -}}
+{{- end -}}

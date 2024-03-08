@@ -1,0 +1,10 @@
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    program = {{ .chezmoi.homeDir | replaceAllRegex "/" "\\\\" -}}\\AppData\\Local\\1Password\\app\\8\\op-ssh-sign.exe
+[commit]
+    gpgsign = true
+[user]
+    signingkey = {{ .git.reeink.publicKey }}
+    name = {{ .git.reeink.name }}
+    email = {{ .git.reeink.email }}
