@@ -1,0 +1,12 @@
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    program = /mnt/c/Users/{{- output "powershell.exe" "$env:UserName" -}}/AppData/Local/1Password/app/8/op-ssh-sign-wsl
+[commit]
+    gpgsign = true
+[user]
+    signingkey = {{ .git.reeink.publicKey }}
+    name = {{ .git.reeink.name }}
+    email = {{ .git.reeink.email }}
+[core]
+    sshCommand = ssh.exe
