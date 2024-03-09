@@ -155,3 +155,14 @@ alias i='cd ~/i'
 
 # Created by `pipx` on 2024-02-17 11:33:21
 export PATH="$PATH:/home/ree/.local/bin"
+
+{{if eq .chezmoi.os "windows" -}}
+# windows spec config
+{{- else if eq .chezmoi.os "linux" -}}
+{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+# wsl spec config
+alias ssh="ssh.exe"
+{{-   else -}}
+# linux spec config
+{{-   end -}}
+{{- end}}
