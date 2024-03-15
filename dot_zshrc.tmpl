@@ -64,6 +64,13 @@ key[Control-Right]="${terminfo[kRIT5]}"
 [[ -n "${key[Control-Right]}" ]] && bindkey -- "${key[Control-Right]}" forward-word
 
 
+# custom PATH
+path+=("$HOME"'/.local/bin')
+path+=("$HOME"'/.cargo/bin')
+# export to sub-processes (make it inherited by child processes)
+export PATH
+
+
 # homebrew config
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -113,6 +120,9 @@ eval "$(atuin init zsh)"
 # zoxide config
 eval "$(zoxide init zsh)"
 
+# nix config 
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
 # editors
 export EDITOR="nano"
 export VISUAL="code"
@@ -153,9 +163,6 @@ alias gcl='git clone'
 alias box='distrobox'
 
 alias i='cd ~/i'
-
-# Created by `pipx` on 2024-02-17 11:33:21
-export PATH="$PATH:/home/ree/.local/bin"
 
 {{if eq .chezmoi.os "windows" -}}
 # windows spec config
