@@ -10,3 +10,11 @@
     email = {{ .git.reeink.email }}
 [core]
     sshCommand = ssh.exe
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+[credential]
+    helper = cache --timeout 7200
+    helper = oauth
