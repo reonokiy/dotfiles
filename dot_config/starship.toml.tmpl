@@ -11,4 +11,10 @@ error_symbol = '[\$](bold red)'
 
 # Disable the package module, hiding it from the prompt completely
 [package]
+disabled = false
+
+{{ if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+# In WSL, disable container option to avoid `[Docker]` prompt.
+[container]
 disabled = true
+{{ end }}
