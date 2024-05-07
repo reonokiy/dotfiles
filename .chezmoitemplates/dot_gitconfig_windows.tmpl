@@ -1,7 +1,7 @@
 [gpg]
     format = ssh
 [gpg "ssh"]
-    program = {{ .chezmoi.homeDir | replaceAllRegex "/" "\\\\" -}}\\AppData\\Local\\1Password\\app\\8\\op-ssh-sign.exe
+    program = "{{ .chezmoi.homeDir | replaceAllRegex "/" "\\\\" -}}\\AppData\\Local\\1Password\\app\\8\\op-ssh-sign.exe"
 [commit]
     gpgsign = true
 [user]
@@ -10,4 +10,5 @@
     email = {{ .git.reeink.email }}
 [credential "helperselector"]
     selected = wincred
-    
+[core]
+    sshCommand = "C:/Windows/System32/OpenSSH/ssh.exe"
