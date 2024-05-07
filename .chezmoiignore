@@ -3,6 +3,7 @@ README.md
 {{ if ne .chezmoi.os "windows" }}
 AppData
 Documents
+.wslconfig
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
