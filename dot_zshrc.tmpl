@@ -77,25 +77,30 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE='/usr/bin/micromamba';
-export MAMBA_ROOT_PREFIX='~/.micromamba';
-__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__mamba_setup"
-else
-    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+# micromamba
+if command -v micromamba &> /dev/null; then
+	export MAMBA_EXE=$(which micromamba);
+	export MAMBA_ROOT_PREFIX='~/.micromamba';
+	__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+	if [ $? -eq 0 ]; then
+		eval "$__mamba_setup"
+	else
+		alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+	fi
+	unset __mamba_setup
 fi
-unset __mamba_setup
-# <<< mamba initialize <<<
 
 
 # starship config
-eval "$(starship init zsh)"
+if command -v starship &> /dev/null; then
+	eval "$(starship init zsh)"
+fi
 
 # fnm config
-eval "$(fnm env --use-on-cd)"
+if command -v fnm &> /dev/null; then
+	eval "$(fnm env --use-on-cd)"
+fi
+
 
 # thefuck config
 fuck() {
@@ -115,10 +120,14 @@ function ya() {
 }
 
 # atuin config
-eval "$(atuin init zsh)"
+if command -v atuin &> /dev/null; then
+	eval "$(atuin init zsh)"
+fi
 
 # zoxide config
-eval "$(zoxide init zsh)"
+if command -v zoxide &> /dev/null; then
+	eval "$(zoxide init zsh)"
+fi
 
 # nix config 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
