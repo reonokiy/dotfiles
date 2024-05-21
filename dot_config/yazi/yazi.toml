@@ -6,3 +6,16 @@
 sort_by = "natural"
 sort_dir_first = true
 show_hidden = true
+
+[opener]
+nano = [
+    { run = 'nano "$@"', block = true }
+]
+code = [
+    { run = 'code "$@"', orphan = true }
+]
+
+[open]
+rules = [
+	{ mime = "text/*", use = [ "nano", "code" ] },
+]
