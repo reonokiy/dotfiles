@@ -129,6 +129,13 @@ if command -v zoxide &> /dev/null; then
 	eval "$(zoxide init zsh)"
 fi
 
+# pyenv config
+if command -v pyenv &> /dev/null; then
+	export PYENV_ROOT="$HOME/.pyenv"
+	[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init -)"
+fi
+
 # nix config 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
