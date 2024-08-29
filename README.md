@@ -3,7 +3,7 @@
 Current system:
 
 - [x] Windows 11
-- [x] Alma Linux 9
+- [x] Alma Linux 9 (WSL2)
 - [ ] Arch Linux
 - [ ] Fedora
 - [ ] Ubuntu
