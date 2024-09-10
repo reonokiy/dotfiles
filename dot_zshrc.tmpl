@@ -71,6 +71,11 @@ path+=('/user/local/bin')
 # export to sub-processes (make it inherited by child processes)
 export PATH
 
+# fpath
+if [[ -d "/home/linuxbrew/.linuxbrew/share/zsh/site-functions" ]]; then
+	fpath=(/home/linuxbrew/.linuxbrew/share/zsh/site-functions $fpath)
+fi
+
 
 # homebrew config
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -138,21 +143,24 @@ if command -v pyenv &> /dev/null; then
 fi
 
 # nix config 
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
+	. $HOME/.nix-profile/etc/profile.d/nix.sh; 
+fi
 
 # editors
-export EDITOR="nano"
+export EDITOR="nvim"
 export VISUAL="code"
 
 # custome alias
-# alias code=code-insiders
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ls=eza
-alias tree='eza --tree'
+if command -v eza &> /dev/null; then
+  alias ls=eza
+  alias tree='eza --tree'
+fi
+if command -v bat &> /dev/null; then
+  alias cat=bat
+fi
 alias f=fuck
 alias v=nvim
-alias sops='op run --no-masking -- sops'
 alias dotfiles='chezmoi'
 alias ze='zellij'
 
