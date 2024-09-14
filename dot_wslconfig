@@ -1,5 +1,6 @@
 [wsl2]
 memory=4GB
+swap=8GB
 networkingMode=mirrored
 dnsTunneling=true
 firewall=true
