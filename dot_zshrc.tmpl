@@ -78,10 +78,14 @@ fi
 
 
 # homebrew config
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [[ -d "/home/linuxbrew/.linuxbrew/bin/brew" ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if command -v brew &> /dev/null; then
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # micromamba
 if command -v micromamba &> /dev/null; then
@@ -142,9 +146,9 @@ if command -v pyenv &> /dev/null; then
 	eval "$(pyenv init -)"
 fi
 
-# nix config 
+# nix config
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
-	. $HOME/.nix-profile/etc/profile.d/nix.sh; 
+	. $HOME/.nix-profile/etc/profile.d/nix.sh;
 fi
 
 # editors
