@@ -70,6 +70,7 @@ path+=("$HOME"'/.cargo/bin')
 path+=('/user/local/bin')
 # export to sub-processes (make it inherited by child processes)
 export PATH
+export GOPATH=$HOME/.go
 
 # fpath
 if [[ -d "/home/linuxbrew/.linuxbrew/share/zsh/site-functions" ]]; then
@@ -86,6 +87,15 @@ if command -v brew &> /dev/null; then
     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+# arch linux zsh extensions
+if [[ -e "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+	source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+if [[ -e "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 
 # micromamba
 if command -v micromamba &> /dev/null; then
@@ -208,5 +218,6 @@ alias i='ya ~/i'
 alias ssh="ssh.exe"
 {{-   else -}}
 # linux spec config
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 {{-   end -}}
 {{- end}}
