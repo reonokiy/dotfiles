@@ -1,0 +1,40 @@
+{
+  "editor.fontFamily": "'FiraCode Nerd Font Mono', 'monospace', monospace",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.guides.bracketPairs": "active",
+  "editor.lineNumbers": "interval",
+  "editor.renderWhitespace": "boundary",
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "workbench.list.smoothScrolling": true,
+  "workbench.sideBar.location": "right",
+  "workbench.colorTheme": "Vitesse Light Soft",
+  "workbench.preferredLightColorTheme": "Vitesse Light Soft",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.productIconTheme": "icons-carbon",
+  "workbench.editor.closeOnFileDelete": true,
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.editor.limit.value": 5,
+  "window.autoDetectColorScheme": true,
+  "window.dialogStyle": "custom",
+  "window.titleBarStyle": "custom",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.simpleDialog.enable": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.untrackedChanges": "separate",
+
+  "errorLens.enabledDiagnosticLevels": [
+    "warning",
+    "error"
+  ],
+  "errorLens.excludeBySource": [
+    "cSpell"
+  ],
+}

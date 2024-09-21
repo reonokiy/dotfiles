@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "Github.vscode-github-actions",
+    "GitHub.vscode-pull-request-github",
+    "ms-vscode-remote.remote-containers",
+    "ms-vscode-remote.remote-wsl",
+    "ms-vscode-remote.remote-ssh-edit",
+    "antfu.theme-vitesse",
+    "antfu.icons-carbon",
+    "file-icons.file-icons",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+    "EditorConfig.EditorConfig"
+  ]
+}
