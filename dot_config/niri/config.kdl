@@ -1,0 +1,47 @@
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+}
+
+output "eDP-1" {
+    mode "2560x1600@240.003"
+    scale 1.5
+    variable-refresh-rate
+}
+
+binds {
+    Mod+Escape { quit; }
+    Mod+Shift+E { quit skip-confirmation=true; }
+    Mod+Left { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up { focus-window-up; }
+    Mod+Down { focus-window-down; }
+    Mod+Shift+Left { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Up { move-window-up; }
+    Mod+Shift+Down { move-window-down; }
+
+    Mod+C { center-column; }
+    Mod+Q { close-window; }
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    // application
+    Mod+T { spawn "kitty"; }
+    Mod+B { spawn "firefox"; }
+    Mod+E { spawn "code"; }
+
+    Alt+Space { spawn "anyrun"; }
+}
+
+window-rule {
+    geometry-corner-radius 4
+}
+
+// window-rule {
+//     match app-id = "firefox"
+
+// }
+
+debug {
+    wait-for-frame-completion-before-queueing
+}
