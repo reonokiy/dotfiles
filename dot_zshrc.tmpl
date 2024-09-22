@@ -167,11 +167,14 @@ export VISUAL="code"
 
 # custome alias
 if command -v eza &> /dev/null; then
-  alias ls=eza
-  alias tree='eza --tree'
+    alias ls=eza
+    alias tree='eza --tree'
 fi
 if command -v bat &> /dev/null; then
-  alias cat=bat
+    alias cat=bat
+fi
+if command -v zeditor > dev/null; then
+    alias zed=zeditor
 fi
 alias f=fuck
 alias v=nvim
