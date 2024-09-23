@@ -161,27 +161,43 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
 	. $HOME/.nix-profile/etc/profile.d/nix.sh;
 fi
 
+
 # editors
 export EDITOR="nvim"
 export VISUAL="code"
+
+# ENVs
+export GITHUB_USER="op://ENV/Github Token/username"
+export GITHUB_TOKEN="op://ENV/Github Token/credential"
+
+## for rootless docker 
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
 # custome alias
 if command -v eza &> /dev/null; then
     alias ls=eza
     alias tree='eza --tree'
 fi
+
 if command -v bat &> /dev/null; then
     alias cat=bat
 fi
-if command -v zeditor > /dev/null; then
+
+if command -v zeditor &> /dev/null; then
     alias zed=zeditor
 fi
+
+if command -v hub &> /dev/null; then
+    alias hub="op run -- hub"
+fi
+
 alias f=fuck
 alias v=nvim
 alias dotfiles='chezmoi'
 alias ze='zellij'
 
-# micromamba|conda alias
+
+# micromamba | conda alias
 alias mm='micromamba'
 alias ma='micromamba activate'
 alias mda='micromamba activate base'
@@ -192,6 +208,7 @@ alias ml='micromamba list'
 alias me='micromamba env'
 alias mel='micromamba env list'
 alias conda='micromamba'
+
 
 # git alias
 alias g='git'
