@@ -10,6 +10,7 @@
   "workbench.sideBar.location": "right",
   "workbench.colorTheme": "Vitesse Light Soft",
   "workbench.preferredLightColorTheme": "Vitesse Light Soft",
+  "workbench.preferredDarkColorTheme": "Vitesse Dark Soft",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.productIconTheme": "icons-carbon",
   "workbench.editor.closeOnFileDelete": true,
@@ -29,7 +30,6 @@
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.untrackedChanges": "separate",
-
   "errorLens.enabledDiagnosticLevels": [
     "warning",
     "error"
