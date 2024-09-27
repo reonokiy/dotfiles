@@ -188,6 +188,9 @@ if command -v hub &> /dev/null; then
     alias hub="op run -- hub"
 fi
 
+if command -v paru &> /dev/null; then
+    alias pru=paru
+fi
 alias f=fuck
 alias v=nvim
 alias dotfiles='chezmoi'
@@ -235,6 +238,5 @@ alias i='ya ~/i'
 alias ssh="ssh.exe"
 {{-   else -}}
 # linux spec config
-export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 {{-   end -}}
 {{- end}}
