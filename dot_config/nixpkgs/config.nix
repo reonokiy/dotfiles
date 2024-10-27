@@ -1,3 +1,4 @@
+# https://nixos.org/manual/nixpkgs/stable/#sec-declarative-package-management
 {
   packageOverrides = pkgs: with pkgs; {
     myPackages = pkgs.buildEnv {
