@@ -39,11 +39,11 @@ key[Shift-Tab]="${terminfo[kcbt]}"
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
-	autoload -Uz add-zle-hook-widget
-	function zle_application_mode_start { echoti smkx }
-	function zle_application_mode_stop { echoti rmkx }
-	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
-	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+    autoload -Uz add-zle-hook-widget
+    function zle_application_mode_start { echoti smkx }
+    function zle_application_mode_stop { echoti rmkx }
+    add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+    add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 
 
@@ -65,7 +65,7 @@ key[Control-Right]="${terminfo[kRIT5]}"
 
 # nix config (load nix first to get available pkgs in PATH)
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
-	. $HOME/.nix-profile/etc/profile.d/nix.sh;
+    . $HOME/.nix-profile/etc/profile.d/nix.sh;
 fi
 
 # custom PATH
@@ -78,7 +78,7 @@ export GOPATH=$HOME/.go
 
 # fpath
 if [[ -d "/home/linuxbrew/.linuxbrew/share/zsh/site-functions" ]]; then
-	fpath=(/home/linuxbrew/.linuxbrew/share/zsh/site-functions $fpath)
+    fpath=(/home/linuxbrew/.linuxbrew/share/zsh/site-functions $fpath)
 fi
 
 
@@ -94,75 +94,75 @@ fi
 
 # arch linux zsh extensions
 if [[ -e "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
-	source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 if [[ -e "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
-	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 
 # micromamba
 if command -v micromamba &> /dev/null; then
-	export MAMBA_EXE=$(which micromamba);
-	export MAMBA_ROOT_PREFIX='~/.micromamba';
-	__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-	if [ $? -eq 0 ]; then
-		eval "$__mamba_setup"
-	else
-		alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
-	fi
-	unset __mamba_setup
+    export MAMBA_EXE=$(which micromamba);
+    export MAMBA_ROOT_PREFIX='~/.micromamba';
+    __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__mamba_setup"
+    else
+        alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+    fi
+    unset __mamba_setup
 fi
 
 
 # starship config
 if command -v starship &> /dev/null; then
-	eval "$(starship init zsh)"
+    eval "$(starship init zsh)"
 fi
 
 # fnm config
 if command -v fnm &> /dev/null; then
-	eval "$(fnm env --use-on-cd)"
+    eval "$(fnm env --use-on-cd)"
 fi
 
 
 # thefuck config
 fuck() {
-	unfunction fuck
-	eval $(thefuck --alias)
-	fuck "$@"
+    unfunction fuck
+    eval $(thefuck --alias)
+    fuck "$@"
 }
 
 # yazi config
 function ya() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+    local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
 }
 
 # atuin config
 if command -v atuin &> /dev/null; then
-	eval "$(atuin init zsh --disable-up-arrow)"
+    eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
 # zoxide config
 if command -v zoxide &> /dev/null; then
-	eval "$(zoxide init zsh)"
+    eval "$(zoxide init zsh)"
 fi
 
 # pyenv config
 if command -v pyenv &> /dev/null; then
-	export PYENV_ROOT="$HOME/.pyenv"
-	[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-	eval "$(pyenv init -)"
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
 fi
 
 # direnv
 if command -v direnv &> /dev/null; then
-	eval "$(direnv hook zsh)"
+    eval "$(direnv hook zsh)"
 fi
 
 # editors
