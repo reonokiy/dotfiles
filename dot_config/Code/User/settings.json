@@ -37,4 +37,5 @@
   "errorLens.excludeBySource": [
     "cSpell"
   ],
+  "terminal.integrated.defaultProfile.linux": "fish"
 }
