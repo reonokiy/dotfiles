@@ -17,3 +17,8 @@ if command -v starship >/dev/null
     source (starship init fish --print-full-init | psub)
 end
 
+# zoxide
+if command -v zoxide >/dev/null
+    zoxide init fish | source
+end
+
