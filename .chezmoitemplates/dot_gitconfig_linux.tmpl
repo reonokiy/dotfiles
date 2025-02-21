@@ -1,9 +1,9 @@
 [gpg]
-  format = ssh
+    format = ssh
 [gpg "ssh"]
-  program = "/opt/1Password/op-ssh-sign"
+    program = "/opt/1Password/op-ssh-sign"
 [commit]
-  gpgsign = true
+    gpgsign = true
 [user]
     signingkey = {{ .git.default.publicKey }}
     name = {{ .git.default.name }}
@@ -13,4 +13,17 @@
     helper = oauth
 [hub]
     protocol = ssh
+[http]
+    postBuffer = 624288000
+[lfs]
+    concurrenttransfers = 10
+    activitytimeout = 3600
+    dialtimeout = 3600
+    keepalive = 3600
+    tlstimeout = 3600
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 
