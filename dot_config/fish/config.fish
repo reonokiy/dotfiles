@@ -29,12 +29,17 @@ if command -v micromamba >/dev/null
     $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
     alias conda=micromamba
     alias mamba=micromamba
-    alias ma="micromamba env activate"
-    alias mda="micromamba env activate base"
+    alias ma="micromamba activate"
+    alias mda="micromamba activate base"
     alias mel="micromamba env list"
 end
 
 # fnm
 if command -v fnm >/dev/null
     fnm env --use-on-cd --shell fish | source
+end
+
+# kubectl
+if command -v kubectl >/dev/null
+    alias k=kubectl
 end
