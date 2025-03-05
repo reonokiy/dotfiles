@@ -26,6 +26,12 @@ function ya {
     Remove-Item -Path $tmSp
 }
 
+# remove built-in alias
+
+remove-item alias:curl
+remove-item alias:ls
+remove-item alias:cp
+remove-item alias:rm
 
 # alias
 
