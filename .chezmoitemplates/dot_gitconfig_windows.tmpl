@@ -8,7 +8,8 @@
     signingkey = {{ .git.default.publicKey }}
     name = {{ .git.default.name }}
     email = {{ .git.default.email }}
-[credential "helperselector"]
-    selected = wincred
+[credential]
+    helper = cache --timeout 86400
+    helper = oauth
 [core]
     sshCommand = "C:/Windows/System32/OpenSSH/ssh.exe"
