@@ -43,3 +43,5 @@ end
 if command -v kubectl >/dev/null
     alias k=kubectl
 end
+
+set BROWSER "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"
