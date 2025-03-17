@@ -24,7 +24,7 @@ end
 
 # micromamba
 if command -v micromamba >/dev/null
-    set -gx MAMBA_EXE /usr/bin/micromamba
+    set -gx MAMBA_EXE $(which micromamba)
     set -gx MAMBA_ROOT_PREFIX "/home/oune/.local/share/mamba"
     $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
     alias conda=micromamba
