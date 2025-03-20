@@ -18,3 +18,13 @@ disabled = false
 [container]
 disabled = true
 {{ end }}
+
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = 'bold blue'
+symbol = '🅰 '
+[aws.region_aliases]
+ap-east-1 = 'hk'
+ap-southeast-1 = 'sg'
+ap-northeast-1 = 'tokyo'
