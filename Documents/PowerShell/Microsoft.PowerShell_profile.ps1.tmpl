@@ -26,12 +26,19 @@ function ya {
     Remove-Item -Path $tmSp
 }
 
-# remove built-in alias
-
-remove-item alias:curl
-remove-item alias:ls
-remove-item alias:cp
-remove-item alias:rm
+# # remove built-in alias
+# if (Get-Command curl -ErrorAction SilentlyContinue) {
+#     remove-item alias:curl
+# }
+# if (Get-Command ls -ErrorAction SilentlyContinue) {
+#     remove-item alias:ls
+# }
+# if (Get-Command cp -ErrorAction SilentlyContinue) {
+#     remove-item alias:cp
+# }
+# if (Get-Command rm -ErrorAction SilentlyContinue) {
+#     remove-item alias:rm
+# }
 
 # alias
 
