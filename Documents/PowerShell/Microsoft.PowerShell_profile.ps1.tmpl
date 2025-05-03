@@ -3,6 +3,11 @@ if (Get-Command starship -ErrorAction SilentlyContinue) {
     Invoke-Expression (&starship init powershell)
 }
 
+# fnm
+if (Get-Command fnm -ErrorAction SilentlyContinue) {
+    fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
+}
+
 # micromamba
 if (Get-Command micromamba -ErrorAction SilentlyContinue) {
     $Env:MAMBA_ROOT_PREFIX = "{{ .chezmoi.homeDir }}/.micromamba"
