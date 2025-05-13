@@ -1,9 +1,16 @@
 # disable fish greeting
 set fish_greeting
 
+# go 
+set -gx GOPATH $HOME/.go
+fish_add_path $GOPATH/bin
+
+# uv
+fish_add_path $HOME/.local/bin
+
 # nix
 if command -v nix >/dev/null
-    fish_add_path ~/.nix-profile/bin
+    fish_add_path $HOME/.nix-profile/bin
 end
 
 # direnv
@@ -25,7 +32,7 @@ end
 # micromamba
 if command -v micromamba >/dev/null
     set -gx MAMBA_EXE $(which micromamba)
-    set -gx MAMBA_ROOT_PREFIX "/home/oune/.local/share/mamba"
+    set -gx MAMBA_ROOT_PREFIX $HOME/.local/share/mamba
     $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
     alias conda=micromamba
     alias mamba=micromamba
