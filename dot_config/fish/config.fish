@@ -5,6 +5,9 @@ set fish_greeting
 set -gx GOPATH $HOME/.go
 fish_add_path $GOPATH/bin
 
+# rust
+fish_add_path $HOME/.cargo/bin
+
 # uv
 fish_add_path $HOME/.local/bin
 
