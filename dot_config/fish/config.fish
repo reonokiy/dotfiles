@@ -57,3 +57,8 @@ end
 if command -v /usr/local/bin/chrome >/dev/null
     set -gx BROWSER "/usr/local/bin/chrome"
 end
+
+# atuin
+if command -v atuin >/dev/null
+    atuin init fish | source
+end
