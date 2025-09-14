@@ -39,6 +39,7 @@ if command -v micromamba >/dev/null
     $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
     alias conda=micromamba
     alias mamba=micromamba
+    alias mm=micromamba
     alias ma="micromamba activate"
     alias mda="micromamba activate base"
     alias mel="micromamba env list"
@@ -62,3 +63,5 @@ end
 if command -v atuin >/dev/null
     atuin init fish --disable-up-arrow | source
 end
+
+set -gx OPENROUTER_API_KEY "op://Personal/OpenRouter/TOKEN"
