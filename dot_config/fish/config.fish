@@ -65,3 +65,7 @@ if command -v atuin >/dev/null
 end
 
 set -gx OPENROUTER_API_KEY "op://Personal/OpenRouter/TOKEN"
+# kubectl
+if command -v codex >/dev/null
+    alias codex="op run codex"
+end
