@@ -63,8 +63,3 @@ end
 if command -v atuin >/dev/null
     atuin init fish --disable-up-arrow | source
 end
-
-# kubectl
-if command -v codex >/dev/null
-    alias codex="op run -- codex"
-end
