@@ -63,3 +63,9 @@ end
 if command -v atuin >/dev/null
     atuin init fish --disable-up-arrow | source
 end
+
+# mise
+if command -v mise >/dev/null
+    set -gx MISE_EXE (which mise)
+    $MISE_EXE activate fish | source
+end
