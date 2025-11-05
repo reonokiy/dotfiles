@@ -45,10 +45,10 @@ if command -v micromamba >/dev/null
     alias mel="micromamba env list"
 end
 
-# fnm
-if command -v fnm >/dev/null
-    fnm env --use-on-cd --shell fish | source
-end
+# fnm (replaced by mise)
+# if command -v fnm >/dev/null
+#     fnm env --use-on-cd --shell fish | source
+# end
 
 # kubectl
 if command -v kubectl >/dev/null
