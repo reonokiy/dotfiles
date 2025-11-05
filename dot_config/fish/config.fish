@@ -69,3 +69,8 @@ if command -v mise >/dev/null
     set -gx MISE_EXE (which mise)
     $MISE_EXE activate fish | source
 end
+
+# fnox
+if command -v fnox >/dev/null
+    fnox activate fish | source
+end
