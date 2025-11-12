@@ -1,7 +1,7 @@
 [gpg]
     format = ssh
 [gpg "ssh"]
-    program = "{{ .chezmoi.homeDir | replaceAllRegex "/" "\\\\" -}}\\AppData\\Local\\1Password\\app\\8\\op-ssh-sign.exe"
+    program = "{{ .chezmoi.homeDir | replaceAllRegex "/" "\\\\" -}}\\AppData\\Local\\Microsoft\\WindowsApps\\op-ssh-sign.exe"
 [commit]
     gpgsign = true
 [user]
