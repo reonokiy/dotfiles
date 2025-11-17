@@ -10,4 +10,5 @@ Documents
 {{ if ne .chezmoi.os "linux" }}
 .bashrc
 .zshrc
+.zprofile
 {{ end }}
