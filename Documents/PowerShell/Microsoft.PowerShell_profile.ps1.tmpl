@@ -18,7 +18,7 @@ if (Get-Command micromamba -ErrorAction SilentlyContinue) {
 # zoxide
 if (Get-Command zoxide -ErrorAction SilentlyContinue) {
     Invoke-Expression (& { (zoxide init powershell | Out-String) })
-} 
+}
 
 # yazi 
 function ya {
@@ -50,6 +50,10 @@ function ya {
 ## eza -> ls
 if (Get-Command eza -ErrorAction SilentlyContinue) {
     Set-Alias -Name ls -Value eza
+}
+
+if (Get-Command mise -ErrorAction SilentlyContinue) {
+    mise activate pwsh | Out-String | Invoke-Expression
 }
 
 Set-Alias -Name mm -Value micromamba
