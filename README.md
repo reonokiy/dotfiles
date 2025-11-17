@@ -1,15 +1,17 @@
-# dotfiles by [chezmoi](https://www.chezmoi.io/)
+# dotfiles
 
-Current system:
+## initial setup
 
-- [x] Windows 11
-- [x] Alma Linux 9 (WSL2)
-- [x] Arch Linux
-- [ ] Fedora
-- [ ] Ubuntu
+```
+chezmoi init https://github.com/reonokiy/dotfiles
+chezmoi apply -v
+```
 
-## Installation
+## tips
 
-1. Install chezmoi using the instructions from [here](https://www.chezmoi.io/install/).
-2. Clone this repository using `chezmoi init https://github.com/reonokiy/dotfiles`
-3. Apply the dotfiles using `chezmoi apply -v`
+### link wsl op to windows op.exe
+
+```
+mkdir -p ~/.local/bin
+ln -s $(which op.exe) ~/.local/bin/op
+```
