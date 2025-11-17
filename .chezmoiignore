@@ -1,4 +1,5 @@
 README.md
+archlinux.md
 
 {{ if ne .chezmoi.os "windows" }}
 AppData
