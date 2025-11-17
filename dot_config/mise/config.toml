@@ -1,8 +1,17 @@
 [tools]
+[tools]
+amp = "latest"
+claude-code = "latest"
+codex = "latest"
 fnox = "latest"
+gemini = "latest"
 go = "latest"
 java = "latest"
 node = "lts"
+"npm:@antfu/ni" = "latest"
+"pipx:ty" = "latest"
 pnpm = "latest"
 python = "latest"
+ruff = "latest"
 rust = "latest"
+uv = "latest"
