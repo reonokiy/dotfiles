@@ -194,12 +194,16 @@ fi
 if command -v paru &> /dev/null; then
     alias pru=paru
 fi
+
+if command -v mise &> /dev/null; then
+    eval "$(mise activate zsh)"
+fi
+
 alias f=fuck
 alias v=nvim
 alias dotfiles='chezmoi'
 alias ze='zellij'
 alias ll='ls -l'
-
 
 # micromamba | conda alias
 alias mm='micromamba'
@@ -229,10 +233,6 @@ alias gp='git push'
 alias b='distrobox'
 alias ba='distrobox enter'
 alias bls='distrobox ls'
-
-
-# home dir
-alias i='ya ~/i'
 
 {{if eq .chezmoi.os "windows" -}}
 # windows spec config
