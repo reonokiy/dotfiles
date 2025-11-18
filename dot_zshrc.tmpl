@@ -127,21 +127,25 @@ fi
 
 
 # thefuck config
-fuck() {
-    unfunction fuck
-    eval $(thefuck --alias)
-    fuck "$@"
-}
+if command -v thefuck &> /dev/null; then
+    fuck() {
+        unfunction fuck
+        eval $(thefuck --alias)
+        fuck "$@"
+    }
+fi
 
 # yazi config
-function ya() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
-    yazi "$@" --cwd-file="$tmp"
-    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        cd -- "$cwd"
-    fi
-    rm -f -- "$tmp"
-}
+if command -v yazi &> /dev/null; then
+    function ya() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+            cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+    }
+fi
 
 # atuin config
 if command -v atuin &> /dev/null; then
@@ -195,40 +199,52 @@ if command -v mise &> /dev/null; then
     eval "$(mise activate zsh)"
 fi
 
+if command -v zoxide &> /dev/null; then
+    alias z='zoxide'
+fi
+
+if command -v zellij &> /dev/null; then
+    alias ze='zellij'
+fi
+
 alias f=fuck
 alias v=nvim
 alias dotfiles='chezmoi'
-alias ze='zellij'
 alias ll='ls -l'
 
 # micromamba | conda alias
-alias mm='micromamba'
-alias ma='micromamba activate'
-alias mda='micromamba activate base'
-alias mc='micromamba create'
-alias mr='micromamba run'
-alias mi='micromamba install'
-alias ml='micromamba list'
-alias me='micromamba env'
-alias mel='micromamba env list'
-alias conda='micromamba'
-
+if command -v micromamba &> /dev/null; then
+    alias mm='micromamba'
+    alias ma='micromamba activate'
+    alias mda='micromamba activate base'
+    alias mc='micromamba create'
+    alias mr='micromamba run'
+    alias mi='micromamba install'
+    alias ml='micromamba list'
+    alias me='micromamba env'
+    alias mel='micromamba env list'
+    alias conda='micromamba'
+fi
 
 # git alias
-alias g='git'
-alias ga='git add'
-alias gb='git branch'
-alias gc='git commit'
-alias gcm='git commit -m'
-alias gcl='git clone --recurse-submodules'
-alias gl='git pull'
-alias gp='git push'
+if command -v git &> /dev/null; then
+    alias g='git'
+    alias ga='git add'
+    alias gb='git branch'
+    alias gc='git commit'
+    alias gcm='git commit -m'
+    alias gcl='git clone --recurse-submodules'
+    alias gl='git pull'
+    alias gp='git push'
+fi
 
 
 # distrobox alias
-alias b='distrobox'
-alias ba='distrobox enter'
-alias bls='distrobox ls'
+if command -v distrobox &> /dev/null; then
+    alias b='distrobox'
+    alias ba='distrobox enter'
+    alias bls='distrobox ls'
+fi
 
 {{if eq .chezmoi.os "windows" -}}
 # windows spec config
