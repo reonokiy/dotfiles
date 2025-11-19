@@ -76,6 +76,10 @@ path+=('/user/local/bin')
 export PATH
 export GOPATH=$HOME/.go
 
+# locale config
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # fpath
 if [[ -d "/home/linuxbrew/.linuxbrew/share/zsh/site-functions" ]]; then
     fpath=(/home/linuxbrew/.linuxbrew/share/zsh/site-functions $fpath)
