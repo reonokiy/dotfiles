@@ -1,6 +1,12 @@
 # disable fish greeting
 set fish_greeting
 
+# mise
+if command -v mise >/dev/null
+    set -gx MISE_EXE (which mise)
+    $MISE_EXE activate fish | source
+end
+
 # go 
 set -gx GOPATH $HOME/.go
 fish_add_path $GOPATH/bin
@@ -45,11 +51,6 @@ if command -v micromamba >/dev/null
     alias mel="micromamba env list"
 end
 
-# fnm (replaced by mise)
-# if command -v fnm >/dev/null
-#     fnm env --use-on-cd --shell fish | source
-# end
-
 # kubectl
 if command -v kubectl >/dev/null
     alias k=kubectl
@@ -64,13 +65,12 @@ if command -v atuin >/dev/null
     atuin init fish --disable-up-arrow | source
 end
 
-# mise
-if command -v mise >/dev/null
-    set -gx MISE_EXE (which mise)
-    $MISE_EXE activate fish | source
-end
-
 # fnox
 if command -v fnox >/dev/null
     fnox activate fish | source
+end
+
+set -l sock_path "/run/user/"(id -u)"/ssh-agent-1p.sock"
+if test -S "$sock_path"
+    set -gx SSH_AUTH_SOCK "$sock_path"
 end
