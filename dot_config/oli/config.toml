@@ -1,0 +1,4 @@
+[profiles.tigris]
+type = "s3"
+root = "/"
+
