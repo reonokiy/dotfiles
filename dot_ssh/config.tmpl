@@ -1,3 +1,7 @@
+# ~/.ssh/config
+Include ~/.ssh/config.d/*.conf
+Include config.local
+
 {{ if eq .profile "linux-desktop" }}
 Host *
 	IdentityAgent ~/.1password/agent.sock
