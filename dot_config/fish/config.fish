@@ -28,10 +28,10 @@ if command -v direnv >/dev/null
     set -g direnv_fish_mode eval_on_arrow
 end
 
-# starship
-if command -v starship >/dev/null
-    source (starship init fish --print-full-init | psub)
-end
+# # starship
+# if command -v starship >/dev/null
+#     source (starship init fish --print-full-init | psub)
+# end
 
 # zoxide
 if command -v zoxide >/dev/null
