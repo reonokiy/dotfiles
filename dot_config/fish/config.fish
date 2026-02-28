@@ -70,6 +70,11 @@ if command -v fnox >/dev/null
     fnox activate fish | source
 end
 
+# pixi
+if command -v pixi >/dev/null
+    pixi completion --shell fish | source
+end
+
 set -l sock_path "/run/user/"(id -u)"/ssh-agent-1p.sock"
 if test -S "$sock_path"
     set -gx SSH_AUTH_SOCK "$sock_path"

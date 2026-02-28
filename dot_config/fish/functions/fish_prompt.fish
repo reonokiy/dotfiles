@@ -19,7 +19,7 @@ function fish_prompt
 
     set -l vcs (fish_vcs_prompt)
     if test -n "$vcs"
-        echo -n " "$c_git"["(string trim -- $vcs)"]"$normal
+        echo -n " "$c_git""(string trim -- $vcs)""$normal
     end
 
     # command duration (builtin; ms)
