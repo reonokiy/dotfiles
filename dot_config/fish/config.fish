@@ -1,3 +1,6 @@
+# disable CSI u keyboard protocol to avoid garbled output after Ctrl+C
+set -g fish_features no-query-term
+
 # disable fish greeting
 set fish_greeting
 
